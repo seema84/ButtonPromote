@@ -1,5 +1,6 @@
 package me.furt.buttonpromote;
 
+import java.util.Collection;
 import java.util.TimerTask;
 
 import org.bukkit.Location;
@@ -18,7 +19,7 @@ public class ButtonTimer extends TimerTask {
 
 	@Override
 	public void run() {
-		Player[] players = plugin.getServer().getOnlinePlayers();
+		Collection<? extends Player> players = plugin.getServer().getOnlinePlayers();
 		for (Player p : players) {
 		if(p.equals(player))
 			player.teleport(location);

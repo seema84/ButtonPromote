@@ -1,6 +1,8 @@
 package me.furt.buttonpromote;
 
-import net.milkbowl.vault.economy.EconomyResponse;
+
+
+import java.util.Collection;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,6 +15,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+
+import net.milkbowl.vault.economy.EconomyResponse;
 
 public class ButtonListener implements Listener {
 	private ButtonPromote plugin;
@@ -322,7 +326,7 @@ public class ButtonListener implements Listener {
 					plugin.getServer().getScheduler()
 							.scheduleSyncDelayedTask(plugin, new Runnable() {
 								public void run() {
-									Player[] players = plugin.getServer()
+									Collection<? extends Player> players = plugin.getServer()
 											.getOnlinePlayers();
 									for (Player player : players) {
 										if (player.equals(p))

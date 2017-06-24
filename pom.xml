@@ -12,12 +12,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <main.class>me.furt.buttonpromote.ButtonPromote</main.class>
   </properties>
-  
-  <!-- CI Management -->
-  <ciManagement>
-    <system>Jenkins</system>
-    <url>http://crimson-gaming.com:8080</url>
-  </ciManagement>
 
   <!-- Issue Management -->
   <issueManagement>
@@ -32,21 +26,48 @@
       <url>http://repo.bukkit.org/content/repositories/releases/</url>
     </repository>
     <repository>
-	  <id>vault-repo</id>
-	  <url>http://ci.herocraftonline.com/plugin/repository/everything</url>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>vault-repo</id>
+      <url>http://nexus.hc.to/content/repositories/pub_releases/</url>
     </repository>
   </repositories>
   
   <dependencies>
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>1.5.2-R0.1</version>
+      <groupId>net.milkbowl.vault</groupId>
+      <artifactId>VaultAPI</artifactId>
+      <version>1.5</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.bukkit</groupId>
+          <artifactId>bukkit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.bukkit</groupId>
+          <artifactId>craftbukkit</artifactId>
+        </exclusion>
+      </exclusions>	
     </dependency>
     <dependency>
-      <groupId>net.milkbowl.vault</groupId>
-      <artifactId>Vault</artifactId>
-      	<version>1.2.26-SNAPSHOT</version>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.12-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>1.12-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>craftbukkit</artifactId>
+      <version>1.12-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   

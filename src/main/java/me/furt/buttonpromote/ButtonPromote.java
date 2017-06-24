@@ -18,7 +18,6 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.Metrics;
 
 public class ButtonPromote extends JavaPlugin {
 
@@ -62,13 +61,15 @@ public class ButtonPromote extends JavaPlugin {
 		this.getConfig().addDefault("warpTimer", 3);
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
-		PluginDescriptionFile pdf = this.getDescription();
+		/*PluginDescriptionFile pdf = this.getDescription(); */ // Metrics
 		setupDatabase();
 		setupPermissions();
 		setupEconomy();
 		getCommand("buttonpromote").setExecutor(new ButtonCommand(this));
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new ButtonListener(this), this);
+		
+		/* Metrics is inactive
 		try {
 		    Metrics metrics = new Metrics(this);
 		    metrics.addCustomData(new Metrics.Plotter("Total Buttons Used") {
@@ -84,8 +85,8 @@ public class ButtonPromote extends JavaPlugin {
 		   this.getLogger().log(Level.WARNING, "PluginMetrics could not start.");
 		}
 		this.getLogger().log(Level.INFO,
-				"v" + pdf.getVersion() + " is now enabled!");
-	}
+				"v" + pdf.getVersion() + " is now enabled!");*/
+	} 
 
 	// Set up Vault permissions
 	public boolean setupPermissions() {
